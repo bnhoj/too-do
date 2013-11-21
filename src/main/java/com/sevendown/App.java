@@ -19,10 +19,22 @@ public class App
             @Override
             public Object handle(Request request, Response response) {
             	//TO-DO validate input
-            	return db.getCollection("lists").insert((DBObject)JSON.parse(request.body()));
+            	return persist(db, request);
             }
          });
+        
+        put(new Route("/lists/*") {
+        	@Override
+        	public Object handle(Request request, Response response) {
+        		//TO-DO validate input
+        		return persist(db, request);
+        	}
 
+        });
 
+    }
+    
+    private static Object persist(final DB db, Request request) {
+    	return db.getCollection("lists").save((DBObject)JSON.parse(request.body()));
     }
 }
