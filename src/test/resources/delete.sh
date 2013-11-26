@@ -1,0 +1,1 @@
+curl -X DELETE localhost:4567/lists/$1
