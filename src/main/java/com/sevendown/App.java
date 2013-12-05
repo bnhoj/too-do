@@ -1,9 +1,6 @@
 package com.sevendown;
 
-import static spark.Spark.delete;
-import static spark.Spark.get;
-import static spark.Spark.post;
-import static spark.Spark.put;
+import static spark.Spark.*;
 
 import java.net.UnknownHostException;
 
@@ -27,13 +24,15 @@ public class App
         MongoClient mongoClient = new MongoClient( "localhost" );
         final DB db = mongoClient.getDB( "toodo" );
 
-        get(new Route("/") {
-        	@Override
-        	public Object handle(Request request, Response response) {
-        		//TO-DO this should return the html and js needed for the app.
-        		return null;
-        	}
-        });
+//        get(new Route("/") {
+//        	@Override
+//        	public Object handle(Request request, Response response) {
+//        		//TO-DO this should return the html and js needed for the app.
+//        		return null;
+//        	}
+//        });
+        
+        staticFileLocation("/public");
         
         
         post(new Route("/lists") {
