@@ -1,3 +1,5 @@
-function TodoCtrl($scope) {
-	$scope.lists = [{title:"fun stuff",items:[{title:"drink", checked:false}]}];
+function TodoCtrl($scope, $http) {
+	$http.get("/lists").success(function(data) {
+			$scope.lists = data;
+	});
 }
