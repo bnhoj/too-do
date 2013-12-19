@@ -1,15 +1,12 @@
-<html ng-app>
+<html ng-app="toodoApp">
 <head>
 <title>Indeed!</title>
-<script src="angular.min.js"></script>
-<script src="too-do.js"></script>
+<script src="angular.js"></script>
+<script src="angular-route.min.js"></script>
+<script src="app.js"></script>
+<script src="controllers.js"></script>
 </head>
 <body>
-	<h2>Lists</h2>
-	<div ng-controller="TodoCtrl">
-		<ul class="unstyled">
-			<li ng-repeat="list in lists">{{list.title}}</li>
-		</ul>
-	</div>
+	<div ng-view></div>
 </body>
 </html>
